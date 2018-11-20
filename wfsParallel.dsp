@@ -90,4 +90,4 @@ with {
 n = outputs(expr);
 };
 
-process = _ : partialAir : fi.filterbank(3, 100) : (Out(d,nSpeakers,x,y), OutSub(d,nSpeakers,x,y));
+process = _ : fi.lowpass(5,343/d/2) : partialAir : fi.filterbank(3, 100) : (Out(d,nSpeakers,x,y), OutSub(d,nSpeakers,x,y));
